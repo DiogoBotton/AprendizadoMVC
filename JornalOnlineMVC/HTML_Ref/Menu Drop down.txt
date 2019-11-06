@@ -1,0 +1,48 @@
+<ul>
+                <li><a href="#">Novas</a></li>
+                <li><a href="#">Esporte</a>
+                    <ul>
+                        <li><a href="#">Futebol</a></li>
+                        <li><a href="#">Volei</a></li>
+                        <li><a href="#">Ciclismo</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Política</a>
+                    <ul>
+                        <li><a href="#">Lava Jato</a></li>
+                        <li><a href="#">Eleições</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Educação</a></li>
+                <li><a href="#">Economia</a>
+                    <ul>
+                        <li><a href="#">Estatais</a></li>
+                        <li><a href="#">Impostos</a></li>
+                        <li><a href="#">Bolsa de Valores</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Ciência</a>
+                    <ul>
+                        <li><a href="#">Astronomia</a></li>
+                        <li><a href="#">Tecnologia</a></li>
+                        <li><a href="#">Saúde</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+CSS:
+
+.menu ul ul {
+    position: absolute;
+    visibility: hidden;
+}
+
+.menu ul li:hover ul {
+    visibility: visible;
+}
+
+.menu ul ul li {
+    float: none;
+}

@@ -1,0 +1,367 @@
+/*--------------------------------------------------------------------------------------*/
+
+/*---------------------------------------Reset----------------------------------------*/
+
+/*--------------------------------------------------------------------------------------*/
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Times New Roman', Helvetica, sans-serif;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/*------------------------------------Cabeçalho---------------------------------------*/
+
+/*--------------------------------------------------------------------------------------*/
+
+@font-face {
+    font-family: tiempos-black;
+    src: url(../fontes/TiemposHeadline-Black.woff);
+}
+
+@font-face {
+    font-family: tiempos-regular;
+    src: url(../fontes/TiemposHeadline-Regular.woff);
+}
+
+#cabeçalho {
+    width: 100%;
+    background: linear-gradient(to bottom, #000440, #000880);
+    height: 100px;
+}
+
+#cabecalho-bottom {
+    width: 100%;
+    background: linear-gradient(to bottom, #000880, #000440);
+    height: 100px;
+}
+
+.titulo {
+    font-size: 2.5em;
+    font-family: tiempos-black;
+    text-shadow: 5px 5px 5px black;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.titulo-bottom {
+    font-size: 2.5em;
+    font-family: tiempos-black;
+    text-shadow: 5px 5px 5px black;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: flex-start;
+}
+
+.section-container {
+    max-width: 1366px;
+    margin: 0 auto;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/*---------------------------------------Menu-----------------------------------------*/
+
+/*--------------------------------------------------------------------------------------*/
+
+.menu {
+    background: linear-gradient(to bottom right, #000880, #020b8d);
+    padding: 15px;
+   
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding-top: 15px;
+    border-right: 1px solid #b1b1b1;
+    border-left: 1px solid #b1b1b1;
+    border-top: 1px solid#b1b1b1;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: .65em 5.3em;
+    border-right: 1px solid #b1b1b1;
+}
+
+.menu a:hover {
+    color: #ff7b00;
+    transition: all .4s;
+}
+
+.menu ul li:nth-child(1):hover a {
+    border-bottom: 5px solid #ff7b00;
+}
+
+.menu ul li:nth-child(2):hover a {
+    border-bottom: 5px solid #00d9ff;
+}
+
+.menu ul li:nth-child(3):hover a {
+    border-bottom: 5px solid #ff0000;
+}
+
+.menu ul li:nth-child(4):hover a {
+    border-bottom: 5px solid #14ac00;
+}
+
+.menu ul li:nth-child(5):hover a {
+    border-bottom: 5px solid #ff658c;
+}
+
+.menu ul li:nth-child(6):hover a {
+    border-bottom: 5px solid #ffee00;
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+/*-------------------------------------Menu Bottom--------------------------------------*/
+
+/*--------------------------------------------------------------------------------------*/
+
+.menu-bottom {
+    background: linear-gradient(to bottom right, #020b8d, #000880);
+    padding: 15px;
+}
+
+.menu-bottom ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding-bottom: 10px;
+    border-right: 1px solid #b1b1b1;
+    border-left: 1px solid #b1b1b1;
+    border-bottom: 1px solid#b1b1b1;
+}
+
+.menu-bottom a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: .65em 5.3em;
+    border-right: 1px solid #b1b1b1;
+}
+
+.menu-bottom a:hover {
+    color: #ff7b00;
+    transition: all .4s;
+}
+
+/* ul para li, escolho o n° da li, qual ação quero (hover), qual objeto que sofrerá esta ação (a)*/
+
+.menu-bottom ul li:nth-child(1):hover a {
+    border-top: 5px solid #ff7b00;
+}
+
+.menu-bottom ul li:nth-child(2):hover a {
+    border-top: 5px solid #00d9ff;
+}
+
+.menu-bottom ul li:nth-child(3):hover a {
+    border-top: 5px solid #ff0000;
+}
+
+.menu-bottom ul li:nth-child(4):hover a {
+    border-top: 5px solid #14ac00;
+}
+
+.menu-bottom ul li:nth-child(5):hover a {
+    border-top: 5px solid #ff658c;
+}
+
+.menu-bottom ul li:nth-child(6):hover a {
+    border-top: 5px solid #ffee00;
+}
+
+
+
+/*--------------------------------------------------------------------------------------*/
+
+/*----------------------------------Artigo de destaque---------------------------------*/
+
+/*--------------------------------------------------------------------------------------*/
+
+.image {
+    background-image: url(../Img/Amazonia.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    width: 20em;
+}
+
+.image ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    font-family: tiempos-regular;
+    color: #000;
+}
+
+.space {
+    padding-bottom: 10em;
+}
+
+.main-manchete {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 3px #000, 2px -2px 3px #000;
+}
+
+#manchete>div {
+    padding: 1em;
+}
+
+/*-----------------------------------------------------------------------------------------*/
+
+/*----------------------------Outras categorias em destaque--------------------------------*/
+
+/*--------------------------------------------------------------------------------------*/
+
+.exemplo {
+    display: table;
+    border-top: 1px solid #999999;
+    width: 100%;
+    color: #000;
+    /* border-radius: 10px; */
+}
+
+.exemplo figure {
+    display: table-cell;
+    float: left;
+}
+
+.main-title p:nth-child(odd) {
+    padding: .6em;
+    font-weight: bold;
+    font-size: 1em;
+    display: table-cell;
+    float: left;
+    width: 60%;
+}
+
+.main-title p:nth-child(even) {
+    padding-left: 1.2em;
+    font-size: 0.9em;
+    display: table-cell;
+    float: left;
+    width: 60%;
+}
+
+.exemplo figure img{
+    width: 9.5em;
+    margin: 3%;
+}
+
+.exemplo figcaption {
+    font-size: 0.8em;
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------------------*/
+
+.sessao-principais {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 1em;
+}
+
+.manchete-principal {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 2em;
+}
+
+.manchete-principal a {
+    text-decoration: none;
+}
+
+/*À FAZER/PERGUNTAR: Transition em sentido de descida*/
+/*--------------------------------------------------------------------------------------*/
+
+/*--------------------------------------Responsivo--------------------------------------*/
+
+/*--------------------------------------------------------------------------------------*/
+
+@media (max-width:1366px) {
+    .menu a {
+        padding: .65em 3em;
+    }
+    .menu-bottom a {
+        padding: .65em 3em;
+    }
+}
+
+@media (max-width: 900px) {
+    .manchete-principal {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .menu a {
+        padding: .65em 1em;
+        font-size: .89em;
+        border-right: 1px solid #b1b1b1;
+        border-left: 1px solid #b1b1b1;
+        border-top: 1px solid#b1b1b1;
+    }
+    .menu ul {
+        display: flex;
+        justify-content: center;
+        border: none;
+    }
+    .menu-bottom ul {
+        display: flex;
+        justify-content: center;
+        border: none;
+    }
+    .menu-bottom a {
+        padding: .65em 1em;
+        font-size: .89em;
+        border-right: 1px solid #b1b1b1;
+        border-left: 1px solid #b1b1b1;
+        border-bottom: 1px solid#b1b1b1;
+    }
+    
+    .manchete-principal>div {
+        margin-bottom: 1em;
+    }
+}
+/*Botão do menu de opções, tamanho de fontes e imagens.*/
+@media (max-width: 600px) {
+    .exemplo figure img {
+        margin: 0;
+    }
+    .sessao-principais {
+        margin: 0;
+    }
+    .manchete-principal {
+        margin: 0;
+
+    }
+}
