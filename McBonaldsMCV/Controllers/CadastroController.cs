@@ -1,10 +1,12 @@
 using System;
+using McBonaldsMCV.Repositories;
 using McBonaldsMCV.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace McBonaldsMCV.Controllers {
     public class CadastroController : Controller {
+        ClienteRepository clienteRepository = new ClienteRepository();
         public IActionResult Index () {
             return View ();
         }
@@ -20,6 +22,8 @@ namespace McBonaldsMCV.Controllers {
                 cliente.Senha = form["senha"];
                 cliente.Email = form["email"];
                 cliente.DataNascimento = DateTime.Parse (form["data-nascimento"]);
+
+                clienteRepository.Inserir(cliente);
                 return View ("Sucesso");
             } catch (Exception e) {
 

@@ -63,3 +63,4 @@ C:\Users\42299106812\Documents\AprendizadoMVC\McBonaldsMCV\obj\Debug\netcoreapp2
 C:\Users\42299106812\Documents\AprendizadoMVC\McBonaldsMCV\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Index.cshtml.g.cs
 C:\Users\42299106812\Documents\AprendizadoMVC\McBonaldsMCV\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Erro.cshtml.g.cs
 C:\Users\42299106812\Documents\AprendizadoMVC\McBonaldsMCV\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Sucesso.cshtml.g.cs
+C:\Users\42299106812\Documents\AprendizadoMVC\McBonaldsMCV\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Index.cshtml.g.cs

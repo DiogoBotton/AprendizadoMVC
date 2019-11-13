@@ -22,6 +22,7 @@ namespace McBonaldsMCV.Controllers
             return View("Sucesso");
                 
             }catch(Exception e){
+                System.Console.WriteLine(e.StackTrace);
                 return View("Erro");
             }
 
