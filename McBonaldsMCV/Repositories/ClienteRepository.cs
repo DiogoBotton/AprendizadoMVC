@@ -20,6 +20,7 @@ namespace McBonaldsMCV.Repositories
             return true;
 
             }catch(IOException e){
+                System.Console.WriteLine(e.StackTrace);
                 return false;
             }
 

@@ -1,6 +1,7 @@
+@model McBonaldsMCV.ViewModels.PedidoViewModel
 <main>
         <h2>Pede aí, jovem!</h2>
-        <form method="POST" action='@Url.Action("Pedido","Index")'>
+        <form method="POST" action='@Url.Action("Registrar","Pedido")'> <!-- Chamando método diferente de Index, registrar.-->
             <div>
                 <label for="nome">Nome Completo</label>
                 <br />
@@ -30,16 +31,20 @@
                     <label for="hamburguer">Hamburguer</label>
                     <select id="hamburguer" required name="hamburguer">
                         <option value="" disabled selected>Selecione</option>
-                        <option value="furioso">Furioso</option>
-                        <option value="combo">Combo</option>
+                        @foreach (var hbg in Model.Hamburgueres)
+                        {
+                            <option value=@hbg.Nome>@hbg.Nome por @hbg.Preco</option>
+                        }
                     </select>
                 </div>
                 <div>
                     <label for="shake">Shake</label>
                     <select id="shake" name="shake">
                         <option value="" disabled selected>Selecione</option>
-                        <option>Chocolate</option>
-                        <option>Biscoito</option>
+                        @foreach (var shk in Model.Shakes)
+                        {
+                            <option value=@shk.Nome>@shk.Nome por @shk.Preco</option>
+                        }
                     </select>
                 </div>
             </div>
