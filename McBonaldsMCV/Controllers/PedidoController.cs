@@ -21,18 +21,22 @@ namespace McBonaldsMCV.Controllers {
         public IActionResult Registrar (IFormCollection form) {
             ViewData["Action"] = "Pedido";
             Pedido pedido = new Pedido ();
-
+            ////////////////////////////////////////////////////////
             Shake shake = new Shake ();
-            shake.Nome = form["shake"];
-            shake.Preco = 0.0;
-            pedido.shake = shake;
+            string nomeShake = form["shake"];
+            shake.Nome = nomeShake;
+            shake.Preco = shkRepository.ObterPreco(nomeShake);
 
+            pedido.shake = shake;
+            ////////////////////////////////////////////////////////
             Hamburguer hamburguer = new Hamburguer ();
-            shake.Nome = form["hamburguer"];
-            shake.Preco = 0.0;
+            string nomeHamburguer = form["hamburguer"];
+
+            hamburguer.Nome = nomeHamburguer;
+            hamburguer.Preco = hbgRepository.ObterPreco(nomeHamburguer);
             
             pedido.hamburguer = hamburguer;
-
+            ///////////////////////////////////////////////////////
             Cliente cliente = new Cliente () {
                 Nome = form["nome"],
                 Endereco = form["endereco"],
@@ -40,6 +44,9 @@ namespace McBonaldsMCV.Controllers {
                 Email = form["email"]
             };
             pedido.cliente = cliente;
+
+            pedido.PrecoTotal = hamburguer.Preco + shake.Preco;
+            
             pedido.DataDoPedido = DateTime.Now; //Now pega a data atual.
 
             if(pedidoRepository.Inserir(pedido)){

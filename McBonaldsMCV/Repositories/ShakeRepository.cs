@@ -7,6 +7,18 @@ namespace McBonaldsMCV.Repositories
     public class ShakeRepository
     {
         private const string PATH = "Database/Shake.csv";
+
+        public double ObterPreco(string nomeShake){
+            var lista = ObterTodos();
+            double preco = 0;
+            foreach (var shk in lista)
+            {
+                if(shk.Nome.Equals(nomeShake)){
+                    preco = shk.Preco;
+                }
+            }
+            return preco;
+        }
         public List<Shake> ObterTodos () {
             List<Shake> shakes = new List<Shake> ();
 

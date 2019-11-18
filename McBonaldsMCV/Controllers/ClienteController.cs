@@ -1,5 +1,6 @@
 using System;
 using McBonaldsMCV.Models;
+using McBonaldsMCV.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace McBonaldsMCV.Controllers
 {
     public class ClienteController : Controller
     {
+        ClienteRepository clienteRepository = new ClienteRepository();
         [HttpGet]
         public IActionResult Index(){
             return View();
@@ -19,7 +21,16 @@ namespace McBonaldsMCV.Controllers
             try{
             var usuario = form["email"];
             var senha = form["senha"];
-            return View("Sucesso");
+
+            var cliente = clienteRepository.ObterPor(usuario);
+
+            if (cliente.Senha.Equals(senha)){
+                return View("Sucesso");
+            }
+            else{
+                return View("Erro");
+            }
+
                 
             }catch(Exception e){
                 System.Console.WriteLine(e.StackTrace);

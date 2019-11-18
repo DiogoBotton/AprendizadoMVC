@@ -5,6 +5,20 @@ using McBonaldsMCV.Models;
 namespace McBonaldsMCV.Repositories {
     public class HamburguerRepository {
         private const string PATH = "Database/Hamburguer.csv";
+
+        public double ObterPreco (string nomeHamburguer){
+            var lista = ObterTodos();
+            double preco = 0;
+
+            foreach (var hbg in lista)
+            {
+                if(hbg.Nome.Equals(nomeHamburguer)){
+                    preco = hbg.Preco;
+                    break;
+                }
+            }
+            return preco;
+        }
         public List<Hamburguer> ObterTodos () {
             List<Hamburguer> hamburgueres = new List<Hamburguer> ();
 
