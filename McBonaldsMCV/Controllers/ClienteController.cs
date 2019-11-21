@@ -1,6 +1,7 @@
 using System;
 using McBonaldsMCV.Models;
 using McBonaldsMCV.Repositories;
+using McBonaldsMCV.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +10,9 @@ namespace McBonaldsMCV.Controllers
 {
     public class ClienteController : Controller
     {
+        private const string SESSION_CLIENTE_EMAIL = "cliente_email"; 
         ClienteRepository clienteRepository = new ClienteRepository();
+        PedidoRepository pedidoRepository = new PedidoRepository();
         [HttpGet]
         public IActionResult Index(){
             return View();
@@ -24,11 +27,17 @@ namespace McBonaldsMCV.Controllers
 
             var cliente = clienteRepository.ObterPor(usuario);
 
-            if (cliente.Senha.Equals(senha)){
-                return View("Sucesso");
+            if (cliente != null){
+                if(cliente.Senha.Equals(senha)){
+                    HttpContext.Session.SetString(SESSION_CLIENTE_EMAIL,usuario); //Funciona como um dicionário, para não perder algum tipo de dado ao ser redirecionado para outro método (na mesma classe).
+                    return RedirectToAction("Historico","Cliente"); //Redireciona para outra action (método) da mesma classe.
+                }
+                else{
+                    return View("Erro", new RespostaViewModel("Senha incorreta."));
+                }
             }
             else{
-                return View("Erro");
+                return View("Erro", new RespostaViewModel($"Esta conta não existe. Usuário {usuario} não encontrado."));
             }
 
                 
@@ -36,7 +45,14 @@ namespace McBonaldsMCV.Controllers
                 System.Console.WriteLine(e.StackTrace);
                 return View("Erro");
             }
+        }
+        public IActionResult Historico(){
+            var emailCliente = HttpContext.Session.GetString(SESSION_CLIENTE_EMAIL);
+            var pedidosCliente = pedidoRepository.ObterTodosPorCliente(emailCliente);
 
+            return View(new HistoricoViewModel(){
+                Pedidos = pedidosCliente
+            });
         }
     }
 }

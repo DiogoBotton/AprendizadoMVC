@@ -9,5 +9,10 @@ namespace McBonaldsMCV.Models
         public Shake shake {get;set;}
         public double PrecoTotal {get;set;}
 
+        public Pedido(){
+            this.cliente = new Cliente();
+            this.hamburguer = new Hamburguer();
+            this.shake = new Shake();
+        }
     }
 }

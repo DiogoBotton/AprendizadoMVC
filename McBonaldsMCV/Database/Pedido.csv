@@ -1,1 +1,3 @@
 cliente_nome=danilao;cliente_endereco=370;cliente_telefone=40028922;cliente_email=danilao@danilando.com;hamburguer_nome=HappyBurguer;hamburguer_preco=1,99;shake_nome=Morango;shake_preco=19,99;data_pedido=18/11/2019 16:25:18;preco_total=21,98
+cliente_nome=diogo;cliente_endereco=370;cliente_telefone=40028922;cliente_email=diogo.luo@gmail.com;hamburguer_nome=Combo da Hora;hamburguer_preco=19,99;shake_nome=Chocolate;shake_preco=12,99;data_pedido=21/11/2019 17:47:52;preco_total=32,98
+cliente_nome=diogo;cliente_endereco=370;cliente_telefone=40028922;cliente_email=diogo.luo@gmail.com;hamburguer_nome=Black Burguer;hamburguer_preco=12,99;shake_nome=Morango;shake_preco=19,99;data_pedido=21/11/2019 17:48:33;preco_total=32,98

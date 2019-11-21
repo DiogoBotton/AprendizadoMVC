@@ -3,6 +3,7 @@ using McBonaldsMCV.Repositories;
 using McBonaldsMCV.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using McBonaldsMCV.ViewModels;
 
 namespace McBonaldsMCV.Controllers {
     public class CadastroController : Controller {
@@ -24,7 +25,7 @@ namespace McBonaldsMCV.Controllers {
                 cliente.DataNascimento = DateTime.Parse (form["data-nascimento"]);
 
                 clienteRepository.Inserir(cliente);
-                return View ("Sucesso");
+                return View ("Sucesso", new RespostaViewModel("Você foi cadastrado com sucesso."));
             } catch (Exception e) {
 
                 System.Console.WriteLine (e.StackTrace);
