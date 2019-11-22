@@ -6,7 +6,8 @@ using McBonaldsMCV.Repositories;
 using McBonaldsMCV.ViewModels;
 
 namespace McBonaldsMCV.Controllers {
-    public class PedidoController : Controller {
+    public class PedidoController : AbstractController {
+        ClienteRepository clienteRepository = new ClienteRepository();
         PedidoRepository pedidoRepository = new PedidoRepository();
         HamburguerRepository hbgRepository = new HamburguerRepository();
         ShakeRepository shkRepository = new ShakeRepository();
@@ -15,6 +16,18 @@ namespace McBonaldsMCV.Controllers {
             PedidoViewModel pvm = new PedidoViewModel();
             pvm.Hamburgueres = hbgRepository.ObterTodos();
             pvm.Shakes = shkRepository.ObterTodos();
+
+            var emailCliente = ObterUsuarioSession();
+            if(!string.IsNullOrEmpty(emailCliente)){
+            var cliente = clienteRepository.ObterPor(emailCliente);
+            pvm.Cliente = cliente;
+            }
+
+            var nomeCliente = ObterUsuarioNomeSession();
+            if(!string.IsNullOrEmpty(nomeCliente)){
+                pvm.NomeCliente = nomeCliente;
+            }
+
             return View (pvm); //Enviando ViewModel para a tela PEDIDO.
         }
         [HttpPost]

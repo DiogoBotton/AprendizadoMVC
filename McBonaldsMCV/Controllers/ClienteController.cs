@@ -8,9 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace McBonaldsMCV.Controllers
 {
-    public class ClienteController : Controller
+    public class ClienteController : AbstractController
     {
-        private const string SESSION_CLIENTE_EMAIL = "cliente_email"; 
         ClienteRepository clienteRepository = new ClienteRepository();
         PedidoRepository pedidoRepository = new PedidoRepository();
         [HttpGet]
