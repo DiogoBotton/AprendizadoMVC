@@ -14,7 +14,11 @@ namespace McBonaldsMCV.Controllers
         PedidoRepository pedidoRepository = new PedidoRepository();
         [HttpGet]
         public IActionResult Index(){
-            return View();
+            return View(new BaseViewModel(){
+                NomeView = "Login",
+                UsuarioEmail = ObterUsuarioSession(),
+                UsuarioNome = ObterUsuarioNomeSession()
+            });
         }
 
         [HttpPost]
@@ -50,7 +54,10 @@ namespace McBonaldsMCV.Controllers
             var pedidosCliente = pedidoRepository.ObterTodosPorCliente(emailCliente);
 
             return View(new HistoricoViewModel(){
-                Pedidos = pedidosCliente
+                Pedidos = pedidosCliente,
+                NomeView = "Historico",
+                UsuarioEmail = emailCliente,
+                UsuarioNome = ObterUsuarioNomeSession()
             });
         }
     }

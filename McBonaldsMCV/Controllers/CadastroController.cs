@@ -6,10 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 using McBonaldsMCV.ViewModels;
 
 namespace McBonaldsMCV.Controllers {
-    public class CadastroController : Controller {
+    public class CadastroController : AbstractController {
         ClienteRepository clienteRepository = new ClienteRepository();
         public IActionResult Index () {
-            return View ();
+            return View (new BaseViewModel(){
+                NomeView = "Cadastro",
+                UsuarioEmail = ObterUsuarioSession(),
+                UsuarioNome = ObterUsuarioNomeSession()
+            });
         }
 
         public IActionResult CadastrarCliente (IFormCollection form) {

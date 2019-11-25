@@ -27,6 +27,9 @@ namespace McBonaldsMCV.Controllers {
             if(!string.IsNullOrEmpty(nomeCliente)){
                 pvm.NomeCliente = nomeCliente;
             }
+            pvm.NomeView = "Pedido";
+            pvm.UsuarioEmail = emailCliente;
+            pvm.UsuarioNome = nomeCliente;
 
             return View (pvm); //Enviando ViewModel para a tela PEDIDO.
         }
