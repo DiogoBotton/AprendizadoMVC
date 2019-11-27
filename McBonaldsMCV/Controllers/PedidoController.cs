@@ -66,7 +66,11 @@ namespace McBonaldsMCV.Controllers {
             pedido.DataDoPedido = DateTime.Now; //Now pega a data atual.
 
             if(pedidoRepository.Inserir(pedido)){
-                return View ("Sucesso", new RespostaViewModel("Pedido realizado com sucesso."));
+                return View ("Sucesso", new RespostaViewModel("Pedido realizado com sucesso."){
+                    NomeView = "Sucesso",
+                    UsuarioNome = ObterUsuarioNomeSession(),
+                    UsuarioEmail = ObterUsuarioSession()
+                });
             }
             else{
                 return View("Erro");
