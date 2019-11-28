@@ -3024,6 +3024,11 @@
       "FilePath": "c:\\Users\\42299106812\\Documents\\AprendizadoMVC\\McBonaldsMCV\\Views\\Cadastro\\Index.cshtml",
       "TargetPath": "Views\\Cadastro\\Index.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\42299106812\\Documents\\AprendizadoMVC\\McBonaldsMCV\\Views\\Administrador\\Dashboard.cshtml",
+      "TargetPath": "Views\\Administrador\\Dashboard.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"
