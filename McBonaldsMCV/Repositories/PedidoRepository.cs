@@ -26,7 +26,31 @@ namespace McBonaldsMCV.Repositories {
                 return false;
             }
         }
+        public bool Atualizar (Pedido pedido){
+            var pedidosTotais = File.ReadAllLines(PATH);
+            var pedidoCSV = PrepararRegistroCSV(pedido);
+            var linhaPedido = -1;
+            bool resultado = false;
 
+            for (int i = 0; i < pedidosTotais.Length; i++)
+            {
+                var idConvertido = ulong.Parse(ExtrairValorDoCampo("id",pedidosTotais[i]));
+
+                if(pedido.ID.Equals(idConvertido)){
+                    linhaPedido = i;
+                    resultado = true;
+                    break;
+                }
+            }
+
+            if(resultado){
+                pedidosTotais[linhaPedido] = pedidoCSV;
+                File.WriteAllLines(PATH, pedidosTotais);
+                return resultado;
+            }
+            
+            return resultado;
+        }
         public List<Pedido> ObterTodosPorCliente (string emailCliente) {
             List<Pedido> pedidosCliente = new List<Pedido>();
             var pedidos = ObterTodos ();
@@ -37,6 +61,16 @@ namespace McBonaldsMCV.Repositories {
                 }
             }
             return pedidosCliente;
+        }
+        public Pedido ObterPor(ulong id){
+            var pedidos = ObterTodos();
+            foreach (var pedido in pedidos)
+            {
+                if(pedido.ID.Equals(id)){
+                    return pedido;
+                }
+            }
+            return null;
         }
         public List<Pedido> ObterTodos () {
             List<Pedido> pedidos = new List<Pedido> ();

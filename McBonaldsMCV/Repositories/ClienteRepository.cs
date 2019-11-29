@@ -9,6 +9,13 @@ namespace McBonaldsMCV.Repositories {
         public ClienteRepository () {
             if (!File.Exists (PATH)) {
                 File.Create (PATH).Close (); //Necessita do Close() pois sem ele, cria-se o arquivo mas não é possível utiliza-lo depois, pois ele é removido da memoria.
+                Cliente c = new Cliente(){
+                    TipoUsuario = (uint) 0,
+                    Nome = "Admin",
+                    Email = "admin@email.com",
+                    Senha = "admin",
+                };
+                Inserir(c);
             }
         }
 
@@ -17,12 +24,10 @@ namespace McBonaldsMCV.Repositories {
                 string[] dadosCliente = { PrepararRegistroCSV (cliente) }; //Método que irá construir a linha(registro) do cliente.
                 File.AppendAllLines (PATH, dadosCliente);
                 return true;
-
             } catch (IOException e) {
                 System.Console.WriteLine (e.StackTrace);
                 return false;
             }
-
         }
 
         public Cliente ObterPor (string email) {
@@ -32,6 +37,7 @@ namespace McBonaldsMCV.Repositories {
                 if (ExtrairValorDoCampo ("email", linha).Equals (email)) {
                     Cliente c = new Cliente ();
 
+                    c.TipoUsuario = uint.Parse(ExtrairValorDoCampo("tipo-usuario", linha));
                     c.Nome = ExtrairValorDoCampo ("nome", linha);
                     c.Email = ExtrairValorDoCampo ("email", linha);
                     c.Senha = ExtrairValorDoCampo ("senha", linha);
@@ -44,7 +50,7 @@ namespace McBonaldsMCV.Repositories {
             return null;
         }
         private string PrepararRegistroCSV (Cliente cliente) {
-            return $"nome={cliente.Nome};endereco={cliente.Endereco};email={cliente.Email};senha={cliente.Senha};telefone={cliente.Telefone};data_nascimento={cliente.DataNascimento}";
+            return $"tipo-usuario={cliente.TipoUsuario};nome={cliente.Nome};endereco={cliente.Endereco};email={cliente.Email};senha={cliente.Senha};telefone={cliente.Telefone};data_nascimento={cliente.DataNascimento}";
         }
     }
 }

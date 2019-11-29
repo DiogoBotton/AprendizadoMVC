@@ -1,2 +1,1 @@
-nome=danilao;endereco=370;email=danilao@danilando.com;senha=123456;telefone=40028922;data_nascimento=20/12/2000 00:00:00
-nome=diogo;endereco=370;email=diogo.luo@gmail.com;senha=123456;telefone=40028922;data_nascimento=27/09/2000 00:00:00
+tipo-usuario=0;nome=Admin;endereco=;email=admin@email.com;senha=admin;telefone=;data_nascimento=01/01/0001 00:00:00

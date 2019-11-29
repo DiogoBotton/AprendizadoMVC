@@ -4,6 +4,7 @@ using McBonaldsMCV.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using McBonaldsMCV.ViewModels;
+using McBonaldsMCV.Enums;
 
 namespace McBonaldsMCV.Controllers {
     public class CadastroController : AbstractController {
@@ -27,6 +28,7 @@ namespace McBonaldsMCV.Controllers {
                 cliente.Senha = form["senha"];
                 cliente.Email = form["email"];
                 cliente.DataNascimento = DateTime.Parse (form["data-nascimento"]);
+                cliente.TipoUsuario = (uint) TiposUsuarioEnum.USUARIO;
 
                 clienteRepository.Inserir(cliente);
                 return View ("Sucesso", new RespostaViewModel("Você foi cadastrado com sucesso."));
